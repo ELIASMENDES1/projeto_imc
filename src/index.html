@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calculadora de IMC</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <section class="card">
-      <h1>📊 Calculadora de IMC</h1>
-      <input type="number" id="inputPeso" placeholder="Informe seu peso (kg)">
-      <input type="number" id="inputAltura" placeholder="Informe sua altura (m)">
-      <div class="botao-area">
-        <button id="btnCalcular">Calcular</button>
-      </div>
-      <div class="saida" id="saida"></div>
-    </section>
-  </main>
-  <script src="app.js"></script>
+    <div class="wrapper">
+        <div class="container">
+            <h2>
+                <span class="icon">🧍‍♂️</span> <strong>Calculadora de IMC</strong>
+            </h2>
+            <input type="number" id="peso" placeholder="Peso (kg)">
+            <input type="number" id="altura" placeholder="Altura (m)">
+            <div class="button-wrapper">
+                <button onclick="calcularIMC()">Calcular</button>
+            </div>
+            <div class="resultado" id="resultado"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

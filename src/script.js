@@ -1,25 +1,21 @@
-document.getElementById("btnCalcular").addEventListener("click", () => {
-    const peso = parseFloat(document.getElementById("inputPeso").value);
-    const altura = parseFloat(document.getElementById("inputAltura").value);
-    const resultado = document.getElementById("saida");
-  
-    if (!peso || !altura || altura === 0) {
-      resultado.innerHTML = "Preencha os dois campos corretamente.";
-      return;
+function calcularIMC() {
+    const peso = parseFloat(document.getElementById("peso").value);
+    const altura = parseFloat(document.getElementById("altura").value);
+    const resultado = document.getElementById("resultado");
+
+    if (peso && altura) {
+        const imc = (peso / (altura * altura)).toFixed(2);
+        let classificacao = "";
+
+        if (imc < 18.5) classificacao = "Baixo peso";
+        else if (imc < 25) classificacao = "Peso normal";
+        else if (imc < 30) classificacao = "Sobrepeso";
+        else if (imc < 35) classificacao = "Obesidade grau I";
+        else if (imc < 40) classificacao = "Obesidade grau II";
+        else classificacao = "Obesidade grau III";
+
+        resultado.innerHTML = `<strong>Resultado:</strong><br>IMC: ${imc}<br>Classificação: ${classificacao}`;
+    } else {
+        resultado.innerHTML = "Por favor, preencha todos os campos.";
     }
-  
-    const imc = (peso / (altura * altura)).toFixed(1);
-    let nivel = "";
-  
-    if (imc < 18.5) nivel = "Abaixo do peso";
-    else if (imc < 25) nivel = "Peso ideal";
-    else if (imc < 30) nivel = "Levemente acima do peso";
-    else nivel = "Obesidade";
-  
-    resultado.innerHTML = `
-      <strong>Resultado:</strong><br>
-      IMC: ${imc}<br>
-      Classificação: ${nivel}
-    `;
-  });
-  
+}
